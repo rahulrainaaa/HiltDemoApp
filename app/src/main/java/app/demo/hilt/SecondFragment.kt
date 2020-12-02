@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,12 +20,15 @@ class SecondFragment : Fragment() {
     @Inject
     lateinit var logger: LoggerService
 
+    @Inject
+    lateinit var session: SessionService
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         logger.log("Second Fragment")
         logger.logMillis()
+        Toast.makeText(session.applicationContext, "TOAST FROM APP CONTEXT", Toast.LENGTH_SHORT).show()
         return inflater.inflate(R.layout.fragment_second, container, false)
     }
 

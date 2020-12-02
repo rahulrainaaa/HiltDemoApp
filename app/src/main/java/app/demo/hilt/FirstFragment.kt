@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,7 +27,9 @@ class FirstFragment : Fragment() {
     ): View? {
         logger.log("First Fragment")
         logger.logMillis()
-        logger.log("First Fragment: " + session.username)
+
+        Toast.makeText(session.applicationContext, "Toast from app context", Toast.LENGTH_SHORT).show()
+
         return inflater.inflate(R.layout.fragment_first, container, false)
     }
 
